@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/data0/home/wjl/software/gcc-9.4/usr/local/include",
+                "/data0/home/wjl/.conda/envs/hpc4ai/lib/python3.9/site-packages/pybind11/include",
+                "/data0/home/wjl/.conda/envs/hpc4ai/include/python3.9",
+                "/data0/home/wjl/.conda/envs/hpc4ai/lib/python3.9/site-packages/torch/include",
+                "/data0/home/wjl/.conda/envs/hpc4ai/lib/python3.9/site-packages/torch/include/torch/csrc/api/include",
+                "/data0/home/wjl/software/cuda-11.0/include",
+                "/data0/home/wjl/software/TensorRT-8.4.3.1/include"
+            ],
+            "defines": [],
+            "compilerPath": "/data0/home/wjl/software/gcc-9.4/usr/local/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
