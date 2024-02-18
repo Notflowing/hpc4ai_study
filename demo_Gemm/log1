@@ -1,0 +1,90 @@
+My gemm Performance= 482.82 GFlop/s, Time= 0.069 msec, Size= 33554432 Ops,
+Tsrcore Performance= 1216.08 GFlop/s, Time= 0.028 msec, Size= 33554432 Ops,
+Cutlass Performance= 481.06 GFlop/s, Time= 0.070 msec, Size= 33554432 Ops,
+NaiveGe Performance= 1410.98 GFlop/s, Time= 0.024 msec, Size= 33554432 Ops,
+CuBlas  Performance= 2568.53 GFlop/s, Time= 0.013 msec, Size= 33554432 Ops,
+Result= PASS
+ratio_Optim= 0.187974
+ratio_Tensr= 0.473451
+ratio_Cutls= 0.187290
+ratio_Naive= 0.549331
+My gemm Performance= 2045.56 GFlop/s, Time= 0.131 msec, Size= 268435456 Ops,
+Tsrcore Performance= 6343.16 GFlop/s, Time= 0.042 msec, Size= 268435456 Ops,
+Cutlass Performance= 2472.96 GFlop/s, Time= 0.109 msec, Size= 268435456 Ops,
+NaiveGe Performance= 2554.41 GFlop/s, Time= 0.105 msec, Size= 268435456 Ops,
+CuBlas  Performance= 9422.25 GFlop/s, Time= 0.028 msec, Size= 268435456 Ops,
+Result= PASS
+ratio_Optim= 0.217099
+ratio_Tensr= 0.673211
+ratio_Cutls= 0.262459
+ratio_Naive= 0.271104
+My gemm Performance= 8946.35 GFlop/s, Time= 0.240 msec, Size= 2147483648 Ops,
+Tsrcore Performance= 9519.87 GFlop/s, Time= 0.226 msec, Size= 2147483648 Ops,
+Cutlass Performance= 9962.45 GFlop/s, Time= 0.216 msec, Size= 2147483648 Ops,
+NaiveGe Performance= 2942.17 GFlop/s, Time= 0.730 msec, Size= 2147483648 Ops,
+CuBlas  Performance= 12084.00 GFlop/s, Time= 0.178 msec, Size= 2147483648 Ops,
+Result= PASS
+ratio_Optim= 0.740347
+ratio_Tensr= 0.787808
+ratio_Cutls= 0.824433
+ratio_Naive= 0.243477
+My gemm Performance= 9681.38 GFlop/s, Time= 0.749 msec, Size= 7247757312 Ops,
+Tsrcore Performance= 8164.57 GFlop/s, Time= 0.888 msec, Size= 7247757312 Ops,
+Cutlass Performance= 9282.70 GFlop/s, Time= 0.781 msec, Size= 7247757312 Ops,
+NaiveGe Performance= 1967.28 GFlop/s, Time= 3.684 msec, Size= 7247757312 Ops,
+CuBlas  Performance= 12939.64 GFlop/s, Time= 0.560 msec, Size= 7247757312 Ops,
+Result= PASS
+ratio_Optim= 0.748195
+ratio_Tensr= 0.630973
+ratio_Cutls= 0.717384
+ratio_Naive= 0.152035
+My gemm Performance= 11512.34 GFlop/s, Time= 1.492 msec, Size= 17179869184 Ops,
+Tsrcore Performance= 8138.71 GFlop/s, Time= 2.111 msec, Size= 17179869184 Ops,
+Cutlass Performance= 11111.47 GFlop/s, Time= 1.546 msec, Size= 17179869184 Ops,
+NaiveGe Performance= 2021.98 GFlop/s, Time= 8.497 msec, Size= 17179869184 Ops,
+CuBlas  Performance= 13836.71 GFlop/s, Time= 1.242 msec, Size= 17179869184 Ops,
+Result= PASS
+ratio_Optim= 0.832014
+ratio_Tensr= 0.588197
+ratio_Cutls= 0.803042
+ratio_Naive= 0.146131
+My gemm Performance= 12990.84 GFlop/s, Time= 4.463 msec, Size= 57982058496 Ops,
+Tsrcore Performance= 8149.90 GFlop/s, Time= 7.114 msec, Size= 57982058496 Ops,
+Cutlass Performance= 12406.78 GFlop/s, Time= 4.673 msec, Size= 57982058496 Ops,
+NaiveGe Performance= 1842.56 GFlop/s, Time= 31.468 msec, Size= 57982058496 Ops,
+CuBlas  Performance= 14628.57 GFlop/s, Time= 3.964 msec, Size= 57982058496 Ops,
+Result= PASS
+ratio_Optim= 0.888046
+ratio_Tensr= 0.557122
+ratio_Cutls= 0.848120
+ratio_Naive= 0.125956
+My gemm Performance= 13885.48 GFlop/s, Time= 9.898 msec, Size= 137438953472 Ops,
+Tsrcore Performance= 8232.49 GFlop/s, Time= 16.695 msec, Size= 137438953472 Ops,
+Cutlass Performance= 13358.97 GFlop/s, Time= 10.288 msec, Size= 137438953472 Ops,
+NaiveGe Performance= 1815.82 GFlop/s, Time= 75.690 msec, Size= 137438953472 Ops,
+CuBlas  Performance= 14812.26 GFlop/s, Time= 9.279 msec, Size= 137438953472 Ops,
+Result= PASS
+ratio_Optim= 0.937431
+ratio_Tensr= 0.555788
+ratio_Cutls= 0.901885
+ratio_Naive= 0.122589
+My gemm Performance= 15168.28 GFlop/s, Time= 30.581 msec, Size= 463856467968 Ops,
+Tsrcore Performance= 8141.39 GFlop/s, Time= 56.975 msec, Size= 463856467968 Ops,
+Cutlass Performance= 13572.15 GFlop/s, Time= 34.177 msec, Size= 463856467968 Ops,
+NaiveGe Performance= 1616.56 GFlop/s, Time= 286.940 msec, Size= 463856467968 Ops,
+CuBlas  Performance= 14852.28 GFlop/s, Time= 31.231 msec, Size= 463856467968 Ops,
+Result= PASS
+ratio_Optim= 1.021276
+ratio_Tensr= 0.548157
+ratio_Cutls= 0.913809
+ratio_Naive= 0.108843
+My gemm Performance= 13819.36 GFlop/s, Time= 79.563 msec, Size= 1099511627776 Ops,
+Tsrcore Performance= 6202.39 GFlop/s, Time= 177.272 msec, Size= 1099511627776 Ops,
+Cutlass Performance= 13660.84 GFlop/s, Time= 80.486 msec, Size= 1099511627776 Ops,
+NaiveGe Performance= 1184.17 GFlop/s, Time= 928.509 msec, Size= 1099511627776 Ops,
+CuBlas  Performance= 14127.04 GFlop/s, Time= 77.830 msec, Size= 1099511627776 Ops,
+Result= PASS
+ratio_Optim= 0.978220
+ratio_Tensr= 0.439044
+ratio_Cutls= 0.966999
+ratio_Naive= 0.083823
