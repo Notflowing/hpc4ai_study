@@ -1,16 +1,15 @@
 """Operator implementations."""
 
+import functools
 from numbers import Number
-from typing import Optional, List, Tuple, Union
-
-from ..autograd import NDArray
-from ..autograd import Op, Tensor, Value, TensorOp
-from ..autograd import TensorTuple, TensorTupleOp
+from typing import Optional, List
+from .autograd import NDArray
+from .autograd import Op, Tensor, Value, TensorOp
+from .autograd import TensorTuple, TensorTupleOp
 import numpy
 
 # NOTE: we will import numpy as the array_api
 # as the backend for our computations, this line will change in later homeworks
-
 import numpy as array_api
 
 
@@ -82,33 +81,12 @@ class PowerScalar(TensorOp):
 
     def gradient(self, out_grad, node):
         ### BEGIN YOUR SOLUTION
-        return node.inputs[0] ** (self.scalar - 1) * out_grad * self.scalar
+        return node.inputs[0]**(self.scalar - 1) * out_grad * self.scalar
         ### END YOUR SOLUTION
 
 
 def power_scalar(a, scalar):
     return PowerScalar(scalar)(a)
-
-
-class EWisePow(TensorOp):
-    """Op to element-wise raise a tensor to a power."""
-
-    def compute(self, a: NDArray, b: NDArray) -> NDArray:
-        return a**b
-
-    def gradient(self, out_grad, node):
-        if not isinstance(node.inputs[0], NDArray) or not isinstance(
-            node.inputs[1], NDArray
-        ):
-            raise ValueError("Both inputs must be tensors (NDArray).")
-
-        a, b = node.inputs[0], node.inputs[1]
-        grad_a = out_grad * b * (a ** (b - 1))
-        grad_b = out_grad * (a**b) * array_api.log(a.data)
-        return grad_a, grad_b
-
-def power(a, b):
-    return EWisePow()(a, b)
 
 
 class EWiseDiv(TensorOp):
@@ -122,7 +100,7 @@ class EWiseDiv(TensorOp):
     def gradient(self, out_grad, node):
         ### BEGIN YOUR SOLUTION
         lhs, rhs = node.inputs
-        return out_grad / rhs, -out_grad * lhs / (rhs ** 2)
+        return out_grad / rhs, - lhs * out_grad / rhs ** 2
         ### END YOUR SOLUTION
 
 
@@ -182,7 +160,7 @@ class Reshape(TensorOp):
 
     def gradient(self, out_grad, node):
         ### BEGIN YOUR SOLUTION
-        return array_api.reshape(node.inputs[0].shape)
+        return out_grad.reshape(node.inputs[0].shape)
         ### END YOUR SOLUTION
 
 
@@ -195,9 +173,7 @@ class BroadcastTo(TensorOp):
         self.shape = shape
 
     def compute(self, a):
-        ### BEGIN YOUR SOLUTION
         return array_api.broadcast_to(a, self.shape)
-        ### END YOUR SOLUTION
 
     def gradient(self, out_grad, node):
         ### BEGIN YOUR SOLUTION
@@ -268,7 +244,7 @@ class Negate(TensorOp):
 
     def gradient(self, out_grad, node):
         ### BEGIN YOUR SOLUTION
-        return -out_grad
+        return - out_grad
         ### END YOUR SOLUTION
 
 
@@ -326,3 +302,4 @@ class ReLU(TensorOp):
 
 def relu(a):
     return ReLU()(a)
+
