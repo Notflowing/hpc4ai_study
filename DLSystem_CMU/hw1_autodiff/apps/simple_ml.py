@@ -10,7 +10,7 @@ sys.path.append("python/")
 import needle as ndl
 
 
-def parse_mnist(image_filesname, label_filename):
+def parse_mnist(image_filename, label_filename):
     """Read an images and labels file in MNIST format.  See this page:
     http://yann.lecun.com/exdb/mnist/ for a description of the file format.
 
@@ -33,7 +33,20 @@ def parse_mnist(image_filesname, label_filename):
                 for MNIST will contain the values 0-9.
     """
     ### BEGIN YOUR SOLUTION
-    raise NotImplementedError()
+    with gzip.open(image_filename, "rb") as image_file:
+        magic_num, image_num, row, column = struct.unpack(">4i", image_file.read(16))
+        assert(magic_num == 2051)
+        pixel_num = row * column
+        X = np.vstack([np.array(struct.unpack(f">{pixel_num}B", image_file.read(pixel_num)), dtype=np.float32) for _ in range(image_num)])
+        X -= np.min(X)
+        X /= np.max(X)
+
+    with gzip.open(label_filename, "rb") as label_file:
+        magic_num, item_num = struct.unpack(">2i", label_file.read(8))
+        assert(magic_num == 2049)
+        Y = np.array(struct.unpack(f">{item_num}B", label_file.read()), dtype=np.uint8)
+    
+    return X, Y
     ### END YOUR SOLUTION
 
 
@@ -54,7 +67,7 @@ def softmax_loss(Z, y_one_hot):
         Average softmax loss over the sample. (ndl.Tensor[np.float32])
     """
     ### BEGIN YOUR SOLUTION
-    raise NotImplementedError()
+    return (ndl.log(ndl.exp(Z).sum((1,))).sum() - (y_one_hot * Z).sum()) / Z.shape[0]
     ### END YOUR SOLUTION
 
 
@@ -83,7 +96,22 @@ def nn_epoch(X, y, W1, W2, lr=0.1, batch=100):
     """
 
     ### BEGIN YOUR SOLUTION
-    raise NotImplementedError()
+    iteration = (y.size + batch - 1) // batch
+    for i in range(iteration):
+        xx = ndl.Tensor(X[i * batch : (i + 1) * batch, :])
+        yy = y[i * batch : (i + 1) * batch]
+        Z = ndl.relu(xx.matmul(W1)).matmul(W2)
+        y_one_hot = np.zeros((batch, y.max() + 1))
+        y_one_hot[np.arange(batch), yy] = 1
+        y_one_hot = ndl.Tensor(y_one_hot)
+
+        loss = softmax_loss(Z, y_one_hot)
+        loss.backward()
+
+        W1 = ndl.Tensor(W1.realize_cached_data() - lr * W1.grad.realize_cached_data())
+        W2 = ndl.Tensor(W2.realize_cached_data() - lr * W2.grad.realize_cached_data())
+
+    return W1, W2
     ### END YOUR SOLUTION
 
 

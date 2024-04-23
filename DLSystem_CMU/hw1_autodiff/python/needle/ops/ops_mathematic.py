@@ -182,7 +182,7 @@ class Reshape(TensorOp):
 
     def gradient(self, out_grad, node):
         ### BEGIN YOUR SOLUTION
-        return array_api.reshape(node.inputs[0].shape)
+        return out_grad.reshape(node.inputs[0].shape)
         ### END YOUR SOLUTION
 
 
@@ -321,7 +321,7 @@ class ReLU(TensorOp):
         out = node.realize_cached_data().copy()
         out[out > 0] = 1
         return out_grad * Tensor(out)
-        ### END YOUR SOLUTION
+        ### END YOUR SOLUTION 
 
 
 def relu(a):
