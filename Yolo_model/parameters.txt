@@ -1,0 +1,14 @@
+layer {
+    name: “yolo_p4”
+    type: “YoloProposal”
+    yolo_region_param {
+        anchors: 11.0
+        anchors: 8
+        anchors: 5
+        anchors: 3.2
+        anchors: 8.6
+        anchors: 8.9
+        num_anchors: 6
+    }
+    dw: 16
+}
